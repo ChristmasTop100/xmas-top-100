@@ -26,7 +26,7 @@ class Spotify extends Command
      *
      * @var string
      */
-    protected $description = 'Index the spotify play list located inside the storage directory.';
+    protected $description = 'Get the Spotify playlist from spotify and insert it into the database..';
 
     /**
      * Implements the handle method.
