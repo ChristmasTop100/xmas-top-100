@@ -5,6 +5,8 @@ namespace App\Console\Commands;
 use App\Song;
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;
+use SpotifyWebAPI\Session;
+use SpotifyWebAPI\SpotifyWebAPI;
 
 /**
  * @package App\Console\Commands
@@ -31,21 +33,28 @@ class Spotify extends Command
      */
     public function handle()
     {
+        $session    = new Session(config('spotify.client_id'), config('spotify.client_secret'), null);
+        $api        = new SpotifyWebAPI();
+
+        $session->requestCredentialsToken([]);
+        $accessToken = $session->getAccessToken(); // We're good to go!
+
+        // Set the code on the API wrapper
+        $api->setAccessToken($accessToken);
+
+        $playlist = $api->getUserPlaylist(config('spotify.user_id'), config('spotify.playlist_id'));
     	$tracks   = [];
-    	$playlist = file_get_contents(storage_path() . '/spotify/playlist.json');
 
-    	if ($playlist && null !== $playlist) {
-    		$data = json_decode($playlist);
+        Song::truncate();
 
-    		foreach ($data->tracks->items as $item) {
-    			$tracks[] = [
-    				'image' => $item->track->album->images[0]->url,
-    				'url' 	=> $item->track->href,
-    				'name' 	=> $item->track->name,
-    			];
-    		}
+    	foreach ($playlist->tracks->items as $item) {
+            $tracks[] = [
+                'image' => $item->track->album->images[0]->url,
+                'url'   => $item->track->href,
+                'name'  => $item->track->name,
+            ];
+        }
 
-    		Song::insert($tracks);
-    	}
-    }
+        Song::insert($tracks);
+    }  
 }
