@@ -1,0 +1,43 @@
+language: php
+
+sudo: false
+
+php:
+  - 5.6
+  - 7.0
+
+cache:
+  directories:
+    - $HOME/.composer/cache
+
+env:
+  global:
+    - APP_ENV=test
+    - APP_DEBUG=false
+    - APP_KEY=P5k19OzgKLggwt2NNbFBIJnLF9D0GLk8
+    - DB_HOST=localhost
+    - DB_DATABASE=xmas
+    - DB_USERNAME=root
+    - DB_PASSWORD=
+    - CACHE_DRIVER=file
+    - SESSION_DRIVER=file
+    - QUEUE_DRIVER=sync
+
+before_install:
+  - travis_retry composer self-update
+
+install:
+  - mysql -e 'create database xmas;'
+  - travis_retry composer install --prefer-source --no-interaction
+  - chmod -R 777 storage/
+  - php artisan migrate --seed
+  - php artisan spotify:index
+  - npm install gulp
+  - npm install
+  - gulp
+  - php artisan serve --quiet 2>&1 >/dev/null &
+  - sleep 5
+
+after_failure:
+  - cat storage/logs/laravel.log
+  - cat tests/_output/*
