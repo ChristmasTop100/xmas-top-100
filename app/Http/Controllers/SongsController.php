@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Song;
+
 /**
  * @package App\Http\Controllers
  */

@@ -3,9 +3,11 @@
 <head>
 	<title>Christmastop 100</title>
 
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
 </head>
 <body>
+	<div id="snow"></div>
 
 	<header>
 		@yield('header')
