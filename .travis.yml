@@ -34,6 +34,7 @@ install:
   - php artisan spotify:index
   - npm install gulp
   - npm install
+  - gulp
   - php artisan serve --quiet 2>&1 >/dev/null &
   - sleep 5
 
