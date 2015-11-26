@@ -33,7 +33,7 @@ install:
   - php artisan migrate --seed
   - php artisan spotify:index
   - npm install gulp
-  - npm install
+  - travis_retry npm install
   - gulp
   - php artisan serve --quiet 2>&1 >/dev/null &
   - sleep 5
