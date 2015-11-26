@@ -4,7 +4,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-12">
-				<h1>Christmastop 100</h1>
+				<h1>Christmastop <span class="green">100</span></h1>
 			</div>
 		</div>
 	</div>
@@ -28,8 +28,13 @@
 					</a>
 				</div>
 				
-				<div class="col-sm-10 name">
+				<div class="col-sm-8 name">
 					{{ $song->name }}
+				</div>
+
+				<div class="col-sm-2 vote text-right">
+					<a href="#"><i class="ion-plus-round"></i></a>
+					<a href="#"><i class="ion-minus-round"></i></a>
 				</div>
 			</div>
 		@endforeach
