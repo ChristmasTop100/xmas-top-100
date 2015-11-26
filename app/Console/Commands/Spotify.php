@@ -50,7 +50,7 @@ class Spotify extends Command
     	foreach ($playlist->tracks->items as $item) {
             $tracks[] = [
                 'image' => $item->track->album->images[0]->url,
-                'url'   => $item->track->href,
+                'url'   => $item->track->external_urls->spotify,
                 'name'  => $item->track->name,
             ];
         }
