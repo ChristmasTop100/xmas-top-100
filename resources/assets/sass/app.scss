@@ -1,6 +1,7 @@
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "vendor/ionicons/ionicons";
 
+
 $main_color: #1ED85F;
 
 html,
@@ -10,16 +11,47 @@ body {
 	width: 100%;
 }
 
-h1 {
-	font-family: "Montserrat";
-	font-size: 50px;
-	font-weight: normal;
-	color: #fff;
-	margin: 50px 0;
-	text-align: center;
+.btn-primary {
+	background-color: $main-color;
+	border: 0; 
 
-	span.green {
-		color: $main_color;
+	&:hover {
+		background-color: darken($main-color, 6.5%);
+	}
+}
+
+header {
+	margin-bottom: 50px;
+
+	h1 {
+		font-family: "Montserrat";
+		font-size: 50px;
+		font-weight: normal;
+		color: #fff;
+		margin: 50px 0 0 0;
+		text-align: center;
+
+		span.green {
+			color: $main_color;
+		}
+	}
+
+	p {
+		color: #fff;
+		font-size: 14px;
+		font-family: "Montserrat";
+		max-width: 750px;
+		margin: 25px auto 0 auto;
+		line-height: 20px;
+	}
+
+	a {
+		color: $main-color;
+		cursor: pointer;
+
+		&:hover {
+			color: darken($main-color, 6.5%);
+		}
 	}
 }
 
@@ -149,6 +181,7 @@ h1 {
 	-moz-animation: snow 10s linear infinite;
 	-ms-animation: snow 10s linear infinite;
 	animation: snow 10s linear infinite;
+	transform: transale3d(0,0,0); 
 } 
 @keyframes snow {
   100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
