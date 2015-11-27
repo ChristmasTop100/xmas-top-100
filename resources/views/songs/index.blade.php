@@ -36,8 +36,8 @@
 					<span class="counter">
 						
 					</span>
-					<a href="#"><i class="ion-plus-round"></i></a>
-					<a href="#"><i class="ion-minus-round"></i></a>
+					<a href="#"><i class="ion-android-add"></i></a>
+					<a href="#"><i class="ion-android-remove"></i></a>
 				</div>
 			</div>
 		@endforeach
