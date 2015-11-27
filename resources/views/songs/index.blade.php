@@ -29,7 +29,7 @@
 				</div>
 				
 				<div class="col-sm-8 name">
-					{{ $song->name }}
+					{{ $song->name }} - <span class="artist">{{ $song->artist }}</span>
 				</div>
 
 				<div class="col-sm-2 vote text-right">

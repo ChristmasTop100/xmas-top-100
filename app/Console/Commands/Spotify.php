@@ -52,6 +52,7 @@ class Spotify extends Command
                 'image' => $item->track->album->images[0]->url,
                 'url'   => $item->track->external_urls->spotify,
                 'name'  => $item->track->name,
+                'artist' => collect($item->track->artists)->implode('name', ', '),
             ];
         }
 

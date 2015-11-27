@@ -8783,6 +8783,8 @@ h1 {
       font-size: 18px;
       padding-top: 35px;
       padding-bottom: 35px; }
+      .container.songs .row .name span.artist {
+        color: #888; }
     .container.songs .row .vote {
       padding-top: 20px; }
       .container.songs .row .vote a {
