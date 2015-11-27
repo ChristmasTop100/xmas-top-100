@@ -8718,15 +8718,35 @@ body {
   margin: 0;
   width: 100%; }
 
-h1 {
-  font-family: "Montserrat";
-  font-size: 50px;
-  font-weight: normal;
-  color: #fff;
-  margin: 50px 0;
-  text-align: center; }
-  h1 span.green {
-    color: #1ED85F; }
+.btn-primary {
+  background-color: #1ED85F;
+  border: 0; }
+  .btn-primary:hover {
+    background-color: #1abb52; }
+
+header {
+  margin-bottom: 50px; }
+  header h1 {
+    font-family: "Montserrat";
+    font-size: 50px;
+    font-weight: normal;
+    color: #fff;
+    margin: 50px 0 0 0;
+    text-align: center; }
+    header h1 span.green {
+      color: #1ED85F; }
+  header p {
+    color: #fff;
+    font-size: 14px;
+    font-family: "Montserrat";
+    max-width: 750px;
+    margin: 25px auto 0 auto;
+    line-height: 20px; }
+  header a {
+    color: #1ED85F;
+    cursor: pointer; }
+    header a:hover {
+      color: #1abb52; }
 
 .container.songs {
   background: #191919;
@@ -8817,7 +8837,9 @@ h1 {
   top: 0;
   width: 100%;
   -webkit-animation: snow 10s linear infinite;
-  animation: snow 10s linear infinite; }
+  animation: snow 10s linear infinite;
+  -webkit-transform: transale3d(0, 0, 0);
+  transform: transale3d(0, 0, 0); }
 
 @keyframes snow {
   100% {
