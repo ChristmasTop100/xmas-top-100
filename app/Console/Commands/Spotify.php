@@ -48,15 +48,11 @@ class Spotify extends Command
         Song::truncate();
 
     	foreach ($playlist->tracks->items as $item) {
-            $artists = collect($item->track->artists)->map(function ($artist) {
-                return $artist->name;
-            });
-
             $tracks[] = [
                 'image' => $item->track->album->images[0]->url,
                 'url'   => $item->track->external_urls->spotify,
                 'name'  => $item->track->name,
-                'artist' => $artists->implode('items', ', '),
+                'artist' => collect($item->track->artists)->implode('name', ', '),
             ];
         }
 
