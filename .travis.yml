@@ -32,8 +32,9 @@ install:
   - chmod -R 777 storage/
   - php artisan migrate --seed
   - php artisan spotify:index
+  - npm install npm@2.1.1 -g
   - npm install gulp
-  - npm install
+  - travis_retry npm install
   - gulp
   - php artisan serve --quiet 2>&1 >/dev/null &
   - sleep 5
