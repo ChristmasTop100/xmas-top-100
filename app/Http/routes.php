@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'SongsController@index');
+Route::post('/song/vote', 'SongsController@vote')->middleware('auth');
