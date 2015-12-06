@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'SongsController@index');
+Route::post('auth/login', 'Auth\AuthController@postLogin');

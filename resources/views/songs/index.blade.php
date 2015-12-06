@@ -70,11 +70,12 @@
 					<label for="password">Password</label>
 					<input type="password" class="form-control" id="password" placeholder="Password">
 				</div>
+				<input type="hidden" id="_token" value="{{ csrf_token() }}">
 	        </form>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-	        <button type="button" class="btn btn-primary">Login</button>
+	        <button type="button" class="btn btn-primary" id="login">Login</button>
 	      </div>
 	    </div>
 	  </div>
@@ -84,10 +85,32 @@
 @section('scripts')
 	<script>
 		(function ($) {
+			$('button#login').click(function () {
+				$.ajax({
+					type: "POST",
+					url: "auth/login",
+					dataType: "json",
+					data: {
+						_token: $('form #_token').val(),
+						email : $('form #email').val(),
+						password : $('form #password').val()
+					},
+					success: function (msg) {
+						$(".modal-body").prepend('<div class="message">' + msg + '</div>')
+					},
+					error: function () {
+						console.log(this);
+						$(".modal-body").html('Epic fail, error, problems!!')
+						$(".modal-footer").hide()
+					}
+				});
+			});
+
+
 			var element, totalVotes = 100, count, counter, id;
 
 			$('.songs').find('.row').each(function (i, el) {
-				element = $(e);
+				element = $(el);
 				counter = $('.counter', element);
 				count 	= counter.html();
 				id 		= element.data('id');
