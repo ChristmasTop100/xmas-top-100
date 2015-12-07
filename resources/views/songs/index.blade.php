@@ -29,7 +29,7 @@
 						<span class="play"></span>
 					</a>
 				</div>
-				
+
 				<div class="col-sm-8 name">
 					{{ $song->name }} - <span class="artist">{{ $song->artist }}</span>
 				</div>
@@ -70,11 +70,12 @@
 					<label for="password">Password</label>
 					<input type="password" class="form-control" id="password" placeholder="Password">
 				</div>
+				<input type="hidden" id="_token" value="{{ csrf_token() }}">
 	        </form>
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-	        <button type="button" class="btn btn-primary">Login</button>
+	        <button type="button" class="btn btn-primary" id="login">Login</button>
 	      </div>
 	    </div>
 	  </div>
@@ -155,7 +156,7 @@
 					}
 				});
 			});
-			
+
 		})(jQuery);
 	</script>
 @stop
