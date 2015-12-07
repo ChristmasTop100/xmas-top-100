@@ -19,4 +19,7 @@ class Song extends Model
 		'image',
 	];
 
+	public function vote() {
+		return $this->hasMany('App\Vote');
+	}
 }

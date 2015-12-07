@@ -29,7 +29,7 @@
 						<span class="play"></span>
 					</a>
 				</div>
-				
+
 				<div class="col-sm-8 name">
 					{{ $song->name }} - <span class="artist">{{ $song->artist }}</span>
 				</div>
@@ -37,10 +37,10 @@
 				<div class="col-sm-2 vote text-right">
 					@if (Auth::check())
 						<span class="counter">
-							
+							{{ isset($song->vote[0]) ?  $song->vote[0]->score : 0 }}
 						</span>
-						<a href="#"><i class="ion-android-add"></i></a>
-						<a href="#"><i class="ion-android-remove"></i></a>
+						<a href="#"><i class="ion-android-add vote-plus"></i></a>
+						<a href="#"><i class="ion-android-remove vote-minus"></i></a>
 					@endif
 				</div>
 			</div>
@@ -107,27 +107,46 @@
 			});
 
 
-			var element, totalVotes = 100, count, counter, id;
+			var element, totalVotes = 100;
 
 			$('.songs').find('.row').each(function (i, el) {
 				element = $(el);
-				counter = $('.counter', element);
-				count 	= counter.html();
-				id 		= element.data('id');
+
+				function castVote(score, id) {
+					$.ajax({
+						type: "POST",
+						url: "song/vote",
+						dataType: "json",
+						data: {
+							_token: '{{ csrf_token() }}',
+							score: score,
+							id: id
+						},
+						error: function () {
+							alert('Unable to cast votes, try again later.');
+						}
+					});
+				}
 
 				$('.vote-plus', element).on('click', function (e) {
 					e.preventDefault();
+					var parentElement = $(e.target).parent().parent();
+					var counter = $('.counter', parentElement);
+					var count = counter.html();
 
 					if (totalVotes > 0) {
 						count++;
 						totalVotes--;
-
 						counter.html(count);
+						castVote(count, parentElement.parent().data('id'));
 					}
 				});
 
 				$('.vote-minus', element).on('click', function (e) {
 					e.preventDefault();
+					var parentElement = $(e.target).parent().parent();
+					var counter = $('.counter', parentElement);
+					var count = counter.html();
 
 					if (count > 0 && totalVotes < 100) {
 						count--;
@@ -137,7 +156,7 @@
 					}
 				});
 			});
-			
+
 		})(jQuery);
 	</script>
 @stop
