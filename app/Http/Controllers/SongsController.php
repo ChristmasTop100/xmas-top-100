@@ -18,10 +18,19 @@ class SongsController extends Controller
 	 */
 	public function index()
 	{
+		if (Auth::check()) {
+			$songs = Song::with([
+				'vote' => function ($query) {
+					$query->where('user_id', Auth::user()->id);
+				}
+			])->get();
+		}
+		else {
+			$songs = Song::all();
+		}
+
 		return view('songs.index')->with([
-			'songs' => Song::with(['vote' => function ($query) {
-				$query->where('user_id', Auth::user()->id);
-			}])->get(),
+			'songs' => $songs,
 		]);
 	}
 
