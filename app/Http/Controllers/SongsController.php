@@ -52,7 +52,7 @@ class SongsController extends Controller
 
 			$vote->score = $data['score'];
 			$vote->save();
-			return json_encode(['score!']);
+			return response()->json('score!');
 		}
 	}
 
