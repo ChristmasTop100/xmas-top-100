@@ -35,8 +35,6 @@ class OneTimeLogin extends Command
 	            $message->subject(trans('onetimelogin.subject'));
 	        });
 		});
-
-
 	}
 
 }
