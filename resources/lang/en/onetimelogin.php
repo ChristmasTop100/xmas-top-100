@@ -4,11 +4,9 @@ return [
 	
 	'subject' => 'Created a new Christmastop100.nl account!',
 	'title' => 'Account created on christmastop100.nl!',
-	'mail' => 'Hello :name,
-From now on you have an account on christmastop100.nl.
-We created a one time login link for you: <a href="http://christmastop100.nl/auth/otl/:token">:token</a>.
-
-Greetings,
-The christmas team.',
+	'salutation' => 'Hello :name,',
+	'token_text' => 'From now on you have an account on christmastop100.nl. We created a one time login link for you: :otl_link.',
+	'closing' => 'Greetings,',
+  'sender_name' => 'The christmas team.',
 
 ];

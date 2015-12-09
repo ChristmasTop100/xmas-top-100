@@ -6,6 +6,10 @@
 </head>
 <body>
 <h1>{{ trans('onetimelogin.title') }}</h1>
-<p>{{ trans('onetimelogin.mail', ['name' => $user->name, 'token' => $token]) }}</p>
+<p>{{ trans('onetimelogin.salutation', ['name' => $user->name]) }}</p>
+<p>{!! trans('onetimelogin.token_text', ['otl_link' =>  '<a href="http://christmastop100.nl/auth/otl/' . $token . '">http://christmastop100.nl/auth/otl/' . $token . '</a>']) !!}</p>
+<p>{{ trans('onetimelogin.closing') }}<br />
+{{ trans('onetimelogin.sender_name')  }}</p>
+
 </body>
 </html>
