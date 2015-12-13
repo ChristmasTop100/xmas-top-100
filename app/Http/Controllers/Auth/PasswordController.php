@@ -20,6 +20,8 @@ class PasswordController extends Controller
 
     use ResetsPasswords;
 
+    protected $redirectPath = '/';
+
     /**
      * Create a new password controller instance.
      *
@@ -28,5 +30,21 @@ class PasswordController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+    }
+
+    /**
+     * Determine if the passwords are valid for the request.
+     *
+     * @param  array  $credentials
+     * @return bool
+     */
+    protected function validatePasswordWithDefaults(array $credentials)
+    {
+        list($password, $confirm) = [
+          $credentials['password'],
+          $credentials['password_confirmation'],
+        ];
+
+        return $password === $confirm && mb_strlen($password) >= 4;
     }
 }

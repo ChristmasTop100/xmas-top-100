@@ -7,7 +7,7 @@
 <body>
 <h1>{{ trans('onetimelogin.title') }}</h1>
 <p>{{ trans('onetimelogin.salutation', ['name' => $user->name]) }}</p>
-<p>{!! trans('onetimelogin.token_text', ['otl_link' =>  '<a href="http://christmastop100.nl/auth/otl/' . $token . '">http://christmastop100.nl/auth/otl/' . $token . '</a>']) !!}</p>
+<p>{!! trans('onetimelogin.token_text', ['otl_link' =>  url('/auth/otl/' . $token)]) !!}</p>
 <p>{{ trans('onetimelogin.closing') }}<br />
 {{ trans('onetimelogin.sender_name')  }}</p>
 
