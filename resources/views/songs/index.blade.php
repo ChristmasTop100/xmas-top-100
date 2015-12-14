@@ -62,6 +62,8 @@
 	        <h4 class="modal-title" id="myModalLabel">Login</h4>
 	      </div>
 	      <div class="modal-body">
+			  <div class="message">
+			  </div>
 	        <form action="">
 	        	<div class="form-group">
 				    <label for="email">Email address</label>
@@ -98,12 +100,15 @@
 						password : $('form #password').val()
 					},
 					success: function (msg) {
-						$(".modal-body").prepend('<div class="message">' + msg + '</div>')
+						if (msg == 'Authenticated') {
+							location.reload();
+						}
+						else {
+							$(".modal-body .message").html('<div class="message">' + msg + '</div>')
+						}
 					},
-					error: function () {
-						console.log(this);
-						$(".modal-body").html('Epic fail, error, problems!!')
-						$(".modal-footer").hide()
+					error: function (msg) {
+						console.log(msg);
 					}
 				});
 			});

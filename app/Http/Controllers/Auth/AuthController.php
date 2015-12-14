@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Http\Request;
+use Illuminate\Queue\RedisQueue;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -22,6 +24,9 @@ class AuthController extends Controller
     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
+
+    protected $redirectPath = '/';
+    protected $loginPath = '/';
 
     /**
      * Create a new authentication controller instance.
@@ -46,6 +51,23 @@ class AuthController extends Controller
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|confirmed|min:6',
         ]);
+    }
+
+    /**
+     * Handle a login request to the application.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function ajaxLogin(Request $request)
+    {
+        $this->postLogin($request);
+
+        if (\Auth::check()) {
+            return response()->json('Authenticated');
+        }
+
+        return response()->json($this->getFailedLoginMessage());
     }
 
     /**
