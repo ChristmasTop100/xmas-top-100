@@ -55,14 +55,33 @@ header {
 	}
 }
 
-.container.songs {
+.container {
 	background: #191919;
 	opacity: 0.9;
 	padding: 0;
 	position: relative;
 	z-index: 2;
 
-	.row {
+	&.form {
+		background: #111;
+		border-bottom: 1px solid #000;
+		margin-bottom: 1px;
+		padding: 40px 40px 20px 40px;
+		@media screen and (min-width: 800px) {
+			padding: 40px 10% 20px 30%;
+		}
+
+		label {
+			color: #efefef;
+			font-size: 18px;
+		}
+
+		input {
+			width: 70%;
+		}
+	}
+
+	.songs .row {
 		background: #111;
 		border-bottom: 1px solid #000;
 		margin-bottom: 1px;

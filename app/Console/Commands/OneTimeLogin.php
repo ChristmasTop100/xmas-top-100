@@ -31,7 +31,8 @@ class OneTimeLogin extends Command
 	public function handle()
 	{
 		User::get()->each(function($user) {
-			Password::sendResetLink($user->email, function (Message $message) {
+			Password::sendResetLink(['email' => $user->email], function (Message $message) {
+							$message->from('accounts@christmastop100.nl', 'Christmas top 100');
 	            $message->subject(trans('onetimelogin.subject'));
 	        });
 		});
