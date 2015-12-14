@@ -6,9 +6,11 @@
 			<div class="col-sm-12">
 				<h1>Christmastop <span class="green">100</span></h1>
 
+				@if (!Auth::check())
 				<p class="text-center">
 					<a data-toggle="modal" data-target="#login-modal">Login</a> with your e-mail adres to vote!
 				</p>
+				@endif
 			</div>
 		</div>
 	</div>

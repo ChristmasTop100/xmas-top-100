@@ -79,6 +79,11 @@ header {
 		input {
 			width: 70%;
 		}
+
+		li {
+			color: #efefef;
+			font-size: 18px;
+		}
 	}
 
 	&.songs .row {
@@ -180,6 +185,12 @@ header {
 					opacity: 0;
 				}
 			}
+		}
+
+		.counter {
+			color: #efefef;
+			font-size: 30px;
+			margin-right: 10px;
 		}
 	}
 }

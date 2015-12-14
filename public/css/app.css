@@ -8767,6 +8767,9 @@ header {
       font-size: 18px; }
     .container.form input {
       width: 70%; }
+    .container.form li {
+      color: #efefef;
+      font-size: 18px; }
   .container.songs .row {
     background: #111;
     border-bottom: 1px solid #000;
@@ -8836,6 +8839,10 @@ header {
       transition: all 200ms; }
     .container.songs .row:hover .cover .overlay {
       opacity: 0; }
+    .container.songs .row .counter {
+      color: #efefef;
+      font-size: 30px;
+      margin-right: 10px; }
 
 /*
  * Let it snow.
