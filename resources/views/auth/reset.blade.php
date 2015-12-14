@@ -11,7 +11,7 @@
 @stop
 
 @section('content')
-  <div class="container">
+  <div class="container form">
     <form method="POST" action="/auth/otl">
         {!! csrf_field() !!}
         <input type="hidden" name="token" value="{{ $token }}">
@@ -24,24 +24,24 @@
             </ul>
         @endif
 
-        <div>
-            Email
-            <input type="email" name="email" value="{{ old('email') }}">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" value="{{ old('email') }}" class="form-control">
         </div>
 
-        <div>
-            Password
-            <input type="password" name="password">
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" name="password" class="form-control">
+        </>
+
+        <div class="form-group">
+            <label for="password_confirmation">Confirm Password</label>
+            <input type="password" name="password_confirmation" class="form-control">
         </div>
 
-        <div>
-            Confirm Password
-            <input type="password" name="password_confirmation">
-        </div>
-
-        <div>
-            <button type="submit">
-                Reset Password
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">
+                Set Password
             </button>
         </div>
     </form>
