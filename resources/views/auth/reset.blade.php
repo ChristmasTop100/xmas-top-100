@@ -24,7 +24,7 @@
             </ul>
         @endif
 
-        <input type="hidden"  name="email" value="{{ $mail }}" class="form-control">
+        <input type="hidden"  name="email" value="{{ $mail }}">
 
         <div class="form-group">
             <label for="password">Password</label>
