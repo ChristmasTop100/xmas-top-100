@@ -42,6 +42,7 @@ class SongsController extends Controller
 
 		$data = $request->only('id', 'score');
 		$currentTotal = Vote::where('user_id', Auth::user()->id)
+			->where('song_id', '!=', $data['id'])
 			->sum('score');
 
 		if (($currentTotal + $data['score']) <= 100 && $data['score'] >= 0) {
@@ -53,6 +54,9 @@ class SongsController extends Controller
 			$vote->score = $data['score'];
 			$vote->save();
 			return response()->json('score!');
+		}
+		else {
+			return response()->json('Invalid score of ' . ($currentTotal + $data['score']));
 		}
 	}
 

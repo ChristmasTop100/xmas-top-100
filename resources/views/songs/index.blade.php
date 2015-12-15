@@ -114,7 +114,7 @@
 			});
 
 
-			var element, totalVotes = 100;
+			var element, totalVotes = 100, bigCounter = $('h1 .green');
 
 			$('.songs').find('.row').each(function (i, el) {
 				element = $(el);
@@ -134,6 +134,10 @@
 						}
 					});
 				}
+				$('span.counter', element).each(function(i, e) {
+					totalVotes -= parseInt($(e).html());
+					bigCounter.html(totalVotes);
+				});
 
 				$('.vote-plus', element).on('click', function (e) {
 					e.preventDefault();
@@ -144,6 +148,7 @@
 					if (totalVotes > 0) {
 						count++;
 						totalVotes--;
+						bigCounter.html(totalVotes);
 						counter.html(count);
 						castVote(count, parentElement.parent().data('id'));
 					}
@@ -158,8 +163,10 @@
 					if (count > 0 && totalVotes < 100) {
 						count--;
 						totalVotes++;
+						bigCounter.html(totalVotes);
 
 						counter.html(count);
+						castVote(count, parentElement.parent().data('id'));
 					}
 				});
 			});
