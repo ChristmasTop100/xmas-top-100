@@ -104,7 +104,7 @@
 							location.reload();
 						}
 						else {
-							$(".modal-body .message").html('<div class="message">' + msg + '</div>')
+							$(".modal-body .message").html(msg)
 						}
 					},
 					error: function (msg) {
