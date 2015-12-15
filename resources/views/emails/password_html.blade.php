@@ -450,11 +450,15 @@
                                                     <p style="color: #FFFFFF;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size: 18px;line-height: normal;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left;">{{ trans('onetimelogin.salutation', ['name' => $user->name]) }}</p>
 
                                                     <p style="color: #FFFFFF;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size: 18px;line-height: normal;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left;">
-                                                        {!! trans('onetimelogin.token_text', ['otl_link' =>  '<a href="http://christmastop100.nl/auth/otl/' . $token . '" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #888888;font-weight: normal;text-decoration: underline;">http://christmastop100.nl/auth/otl/' . $token . '</a>']) !!}
+                                                        {!! trans('onetimelogin.token_text', ['otl_link' =>  '<a href="http://christmastop100.nl/auth/otl/' . $token . '" target="_blank" style="mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;color: #888888;font-weight: normal;text-decoration: underline;">http://christmastop100.nl/auth/otl/' . $token . '</a>']) !!}</p>
+
+                                                    <p style="color: #FFFFFF;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size: 18px;line-height: normal;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left;">
+                                                        {{ trans('onetimelogin.desc_text') }}</p>
 
                                                     <p style="color: #FFFFFF;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size: 18px;line-height: normal;margin: 10px 0;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left;">{{ trans('onetimelogin.closing') }}<br />
                                                         {{ trans('onetimelogin.sender_name')  }}</p>
 
+                                                    <p style="color: #888888;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;font-size: 13px;line-height: normal;margin: 20px 10px 0 10px;padding: 0;mso-line-height-rule: exactly;-ms-text-size-adjust: 100%;-webkit-text-size-adjust: 100%;text-align: left;">{{ trans('onetimelogin.ps') }}</p>
                                                 </td>
                                             </tr>
                                             </tbody></table>
