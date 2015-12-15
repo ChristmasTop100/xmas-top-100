@@ -44,7 +44,7 @@ class SongsController extends Controller
 		$currentTotal = Vote::where('user_id', Auth::user()->id)
 			->sum('score');
 
-		if (($currentTotal + $data['score']) <= 100) {
+		if (($currentTotal + $data['score']) <= 100 && $data['score'] >= 0) {
 			$vote = Vote::firstOrNew([
 				'user_id' => Auth::user()->id,
 				'song_id' => $data['id']]
