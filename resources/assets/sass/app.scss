@@ -232,6 +232,38 @@ header {
 	0% {background-position: 0px 0px, 0px 0px, 0px 0px; }
 	50% {background-position: 500px 500px, 100px 200px, -100px 150px; }
   	100% {background-position: 500px 1000px, 200px 400px, -100px 300px;}
-}	
+}
 
- 
+/*
+ * Santa
+ */
+#santa {
+	background: url("../images/santa.png") no-repeat -667px 0;
+	height: 100%;
+	width: 100%;
+	left: 0;
+	top: 0;
+	position: fixed;
+	-webkit-animation: santa 1000s linear 20s infinite;
+	-moz-animation: santa 1000s linear 20s infinite;
+	-ms-animation: santa 1000s linear 20s infinite;
+	animation: santa 1000s linear 20s infinite;
+	transform: transale3d(0,0,0);
+}
+
+@keyframes santa {
+	0% {background-position: -667px 0; }
+	100% {background-position: 300% 200px; }
+}
+@-moz-keyframes santa {
+	0% {background-position: -667px 0; }
+	100% {background-position: 300% 200px; }
+}
+@-webkit-keyframes santa {
+	0% {background-position: -667px 0; }
+	100% {background-position: 300% 200px; }
+}
+@-ms-keyframes santa {
+	0% {background-position: -667px 0; }
+	100% {background-position: 300% 200px; }
+}
