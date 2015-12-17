@@ -12,7 +12,7 @@
 				</p>
 				@else
 					<p class="text-center">
-						Votes left: <span class="counter">100</span>
+						Votes left: <span class="total-user-counter">100</span>
 					</p>
 				@endif
 			</div>
@@ -118,7 +118,7 @@
 			});
 
 
-			var element, totalVotes = 100, bigCounter = $('.counter');
+			var element, totalVotes = 100, bigCounter = $('.total-user-counter');
 
 			$('.songs').find('.row').each(function (i, el) {
 				element = $(el);
