@@ -7,12 +7,8 @@
 				<h1>Christmastop <span class="green">100</span></h1>
 
 				@if (!Auth::check())
-				<p class="text-center">
-					<a data-toggle="modal" data-target="#login-modal">Login</a> with your e-mail adres to vote!
-				</p>
-				@else
 					<p class="text-center">
-						Votes left: <span class="total-user-counter">100</span>
+						<a data-toggle="modal" data-target="#login-modal">Login</a> with your e-mail adres to vote!
 					</p>
 				@endif
 			</div>
@@ -54,6 +50,11 @@
 
 	</div>
 
+	@if (Auth::check())
+		<div class="votes-left">
+			<span class="total-user-counter">100</span>
+		</div>
+	@endif
 @stop
 
 @section('footer')
@@ -84,6 +85,26 @@
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
 	        <button type="button" class="btn btn-primary" id="login">Login</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="done-voting-modal" tabindex="-1" role="dialog" aria-labelledby="done-voting-modal">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <h4 class="modal-title" id="myModalLabel">Done!</h4>
+	      </div>
+	      <div class="modal-body">
+			  <div class="message">
+			  	Thanks for voting!
+			  </div>
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 	      </div>
 	    </div>
 	  </div>
@@ -141,6 +162,10 @@
 				$('span.counter', element).each(function(i, e) {
 					totalVotes -= parseInt($(e).html());
 					bigCounter.html(totalVotes);
+
+					if (totalVotes == 0) {
+						$('#done-voting-modal').modal();
+					}
 				});
 
 				$('.vote-plus', element).on('click', function (e) {

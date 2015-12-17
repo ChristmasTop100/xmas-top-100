@@ -8845,6 +8845,19 @@ header {
       margin-right: 10px; }
 
 /*
+ * Counter
+ */
+.votes-left {
+  background-color: #111;
+  padding: 15px;
+  position: fixed;
+  right: 0;
+  bottom: 0; }
+  .votes-left span {
+    color: #fff;
+    font-size: 24px; }
+
+/*
  * Let it snow.
  */
 #snow {
