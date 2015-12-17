@@ -8725,6 +8725,7 @@ body {
     background-color: #1abb52; }
 
 header {
+  position: fixed;
   margin-bottom: 50px; }
   header h1 {
     font-family: "Montserrat";
@@ -8876,5 +8877,36 @@ header {
     background-position: 500px 500px, 100px 200px, -100px 150px; }
   100% {
     background-position: 500px 1000px, 200px 400px, -100px 300px; } }
+
+/*
+ * Santa
+ */
+#santa {
+  background: url("../images/santa.png") no-repeat -667px 0;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 200px;
+  position: fixed;
+  -webkit-animation: santa 1000s linear 10s infinite;
+  animation: santa 1000s linear 10s infinite;
+  -webkit-transform: transale3d(0, 0, 0);
+  transform: transale3d(0, 0, 0); }
+
+@keyframes santa {
+  0% {
+    background-position: -667px 200px; }
+  1% {
+    background-position: 300% 50px; }
+  100% {
+    background-position: 300% 100px; } }
+
+@-webkit-keyframes santa {
+  0% {
+    background-position: -667px 200px; }
+  1% {
+    background-position: 300% 50px; }
+  100% {
+    background-position: 300% 100px; } }
 
 /*# sourceMappingURL=app.css.map */
