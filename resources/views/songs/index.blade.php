@@ -10,6 +10,10 @@
 				<p class="text-center">
 					<a data-toggle="modal" data-target="#login-modal">Login</a> with your e-mail adres to vote!
 				</p>
+				@else
+					<p class="text-center">
+						Votes left: <span class="counter">100</span>
+					</p>
 				@endif
 			</div>
 		</div>
@@ -114,7 +118,7 @@
 			});
 
 
-			var element, totalVotes = 100, bigCounter = $('h1 .green');
+			var element, totalVotes = 100, bigCounter = $('.counter');
 
 			$('.songs').find('.row').each(function (i, el) {
 				element = $(el);

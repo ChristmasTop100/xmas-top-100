@@ -17,10 +17,11 @@ body {
 
 	&:hover {
 		background-color: darken($main-color, 6.5%);
-	}
+	} 
 }
 
 header {
+	position: fixed;
 	margin-bottom: 50px;
 
 	h1 {

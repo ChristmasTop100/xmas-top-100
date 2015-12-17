@@ -24,8 +24,7 @@ class SongsController extends Controller
 					$query->where('user_id', Auth::user()->id);
 				}
 			])->get();
-		}
-		else {
+		} else {
 			$songs = Song::all();
 		}
 
