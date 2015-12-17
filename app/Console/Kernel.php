@@ -15,6 +15,7 @@ class Kernel extends ConsoleKernel
     protected $commands = [
         \App\Console\Commands\Inspire::class,
         \App\Console\Commands\Spotify::class,
+        \App\Console\Commands\SpotifyExport::class,
         \App\Console\Commands\OneTimeLogin::class,
     ];
 
