@@ -101,6 +101,8 @@
 	      <div class="modal-body">
 			  <div class="message">
 			  	Thanks for voting!
+
+			  	<img src="https://i.ytimg.com/vi/WCAQOX6jlFk/hqdefault.jpg">
 			  </div>
 	      </div>
 	      <div class="modal-footer">
