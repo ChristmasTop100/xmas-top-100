@@ -164,10 +164,6 @@
 				$('span.counter', element).each(function(i, e) {
 					totalVotes -= parseInt($(e).html());
 					bigCounter.html(totalVotes);
-
-					if (totalVotes == 0) {
-						$('#done-voting-modal').modal();
-					}
 				});
 
 				$('.vote-plus', element).on('click', function (e) {
@@ -182,6 +178,10 @@
 						bigCounter.html(totalVotes);
 						counter.html(count);
 						castVote(count, parentElement.parent().data('id'));
+						
+						if (totalVotes == 0) {
+							$('#done-voting-modal').modal();
+						}
 					}
 				});
 
